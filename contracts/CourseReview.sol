@@ -21,11 +21,11 @@ contract CourseReview{
    uint public coursesCount;
 
     constructor() public{
-      addCourse("course 1");
-      addCourse("course 2");
+      addCourse("BlockChain Technology");
+      addCourse("Machine Learning");
     }
 
-    function addCourse (string memory _name) private {
+    function addCourse (string memory _name) public {
       coursesCount++;
       //add a new course
       courses[coursesCount] = Course(coursesCount, _name, 0, 0);
@@ -49,7 +49,7 @@ contract CourseReview{
       // var tempCourse = courses[_courseId];
       uint tempCount = tempCourse.voteCount;
       uint tempRating = tempCourse.rating;
-      // tempRating = tempRating*tempCount ;
+      tempRating = tempRating*tempCount ;
       // tempRating = tempRating + _rating;
 
       //if the student has voted before then the vote count should not be incremented
@@ -58,22 +58,23 @@ contract CourseReview{
         tempCount++;
         courses[_courseId].students[msg.sender] = true;
         courses[_courseId].ratings[msg.sender] = _rating;
+        tempRating = tempRating + _rating;
       }
       else{
-        // tempRating = tempRating - courses[_courseId].ratings[msg.sender];
+        tempRating = tempRating - courses[_courseId].ratings[msg.sender] + _rating;
         courses[_courseId].ratings[msg.sender] = _rating;
       }
       //make a for loop to calculate the average rating of specific course
-      uint sum = 0;
+      // uint sum = 0;
       // uint count = 0;
-      for(uint i=1;i<=tempCount;i++){
-        //make a for loop on ratings
-        sum = sum + courses[_courseId].ratings[i];
-      }
+      // for(uint i=1;i<=tempCount;i++){
+      //   //make a for loop on ratings
+      //   sum = sum + courses[_courseId].ratings[i];
+      // }
     
 
       // tempCount++;
-      tempRating = sum/tempCount;
+      tempRating = tempRating/tempCount;
       courses[_courseId] = Course(_courseId,tempCourse.name,tempCount,tempRating);
       // courses[_courseId].voteCount ++;
     }

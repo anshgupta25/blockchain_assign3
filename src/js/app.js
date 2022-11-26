@@ -127,7 +127,26 @@ App = {
     }).catch(function(err) {
       console.error(err);
     });
+  },
+  addCourse: function() {
+    var courseName = $('#courseName').val();
+    console.log("courseName: " + courseName);
+    App.contracts.CourseReview.deployed().then(function(instance) {
+      //return courseId and courseRating to the contract
+      return instance.addCourse(courseName, { from: App.account });
+      // return instance.vote(courseId,courseRating, { from: App.account });
+    }).then(function(result) {
+      // Wait for votes to update
+      $("#content").hide();
+      $("#loader").show();
+    }).catch(function(err) {
+      console.error(err);
+    });
+
   }
+
+
+
 };
 
 $(function() {

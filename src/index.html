@@ -53,6 +53,13 @@
               <button type="submit" class="btn btn-primary">Vote</button>
               <hr />
             </form>
+            <form onSubmit="App.addCourse(); return false;">
+              <div class="form-group">
+                <label for="courseName">Add Course</label>
+                <input type="text" class="form-control" id="courseName" placeholder="Course Name">
+              </div>
+              <button type="submit" class="btn btn-primary">Add Course</button>
+            </form>
             <p id="accountAddress" class="text-center"></p>
           </div>
         </div>
