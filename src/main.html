@@ -45,7 +45,7 @@
         <!-- Header End -->
     </header>
 
-    <div class="slider-area" >
+    <div class="slider-area">
       <div class="slider-active">
           <!-- Single Slider -->
           <div class="single-slider slider-height d-flex align-items-center">
@@ -78,10 +78,10 @@
 
 
 
-    <div class="container" style="width: 650px;margin-top:200px">
+    <div class="container" style="width: 650px;margin-top:20px">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="text-center"  style="color:black">FOR THE PEOPLE BY THE PEOPLE</h1>
+          <h1 class="text-center"  style="color:black">CourseReview Results</h1>
           <br/>
           <div id="loader">
             <p class="text-center">Loading...</p>
@@ -92,19 +92,18 @@
                 <tr>
                   <th scope="col">Index</th>
                   <th scope="col">Name</th>
-                  <th scope ="col">Desciption</th>
-                  <th scope="col">Number of Donations</th>
-                  <th scope="col">Amount collected</th>
+                  <th scope="col">Votes</th>
+                  <th scope="col">Rating</th>
                 </tr>
               </thead>
-              <tbody id="CHARITY">
+              <tbody id="coursesResults">
               </tbody>
             </table>
             <hr/>
             <form onSubmit="App.castVote(); return false;">
               <div class="form-group">
-                <label for="SELECT_CHARITY">Select Charity</label>
-                <select class="form-control" id="SELECT_CHARITY">
+                <label for="coursesSelect">Select Course</label>
+                <select class="form-control" id="coursesSelect">
                 </select>
                 <!-- input rating of the user to the courseSelected -->
                 <input type="number" class="form-control" id="courseRating" placeholder="Rating">
@@ -118,11 +117,10 @@
             </form>
             <form onSubmit="App.addCourse(); return false;">
               <div class="form-group">
-                <label for="courseName">Add Charity</label>
+                <label for="courseName">Add Course</label>
                 <input type="text" class="form-control" id="courseName" placeholder="Course Name">
-                <input type="text" class="form-control" id="courseDesc" placeholder="Course Desciption">
               </div>
-              <button type="submit" class="btn header-btn">Add</button></a>
+              <button type="submit" class="btn header-btn">Donate</button></a>
             </form>
             <p id="accountAddress" class="text-center"></p>
           </div>
