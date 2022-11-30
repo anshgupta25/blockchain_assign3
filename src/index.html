@@ -1,141 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Charity Dapp</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
-  </head>
-  <body style>
-    <header>
-        <!-- Header Start -->
-        <div class="header-area">
-            <div class="main-header ">
-                <div class="header-bottom  header-sticky" style="background-color:black">
-                    <div class="container-fluid" >
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href="index.html"><img src="images/logo2_footer.png" style="margin-top:30px; margin-bottom:20px" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10">
-                                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
-                                    <!-- Main-menu -->
-                                    <div class="main-menu d-none d-lg-block">
-                                     
-                                    </div>
-                                    <!-- Header-btn -->
-                                    
-                                </div>
-                            </div> 
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charity Dapp</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body style>
+  <header>
+    <!-- Header Start -->
+    <div class="header-area">
+      <div class="main-header ">
+        <div class="header-bottom  header-sticky" style="background-color:black">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <!-- Logo -->
+              <div class="col-xl-2 col-lg-2">
+                <div class="logo">
+                  <a href="index.html"><img src="images/logo2_footer.png" style="margin-top:30px; margin-bottom:20px"
+                      alt=""></a>
                 </div>
-            </div>
-        </div>
-        <!-- Header End -->
-    </header>
+              </div>
+              <div class="col-xl-10 col-lg-10">
+                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
+                  <!-- Main-menu -->
+                  <div class="main-menu d-none d-lg-block">
 
-    <div class="slider-area" >
-      <div class="slider-active">
-          <!-- Single Slider -->
-          <div class="single-slider slider-height d-flex align-items-center">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10" style="background-image: url("paper.gif");">
-                          <div style="margin-top:200px" class="hero__caption">
-                            
-                              <h1 data-animation="fadeInUp" >Our Helping to<br> the world.</h1>
-                              
-                              <P data-animation="fadeInUp">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut bore et dolore magnt, sed do eiusmod.</P>
-                              <!-- Hero-btn -->
-                              <div class="hero__btn">
-                                  <a href="industries.html" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
-              
-                                  <a href="industries.html" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
-                                      <i class="flaticon-null"></i>
-                                      <p>+12 1325 41</p>
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
+                    </h3>
                   </div>
+
+                  </h3>
+                </div>
               </div>
-          </div>
-      </div>
-  </div>
-
-
-
-
-
-    <div class="container" style="width: 650px;margin-top:200px">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="text-center"  style="color:black">FOR THE PEOPLE BY THE PEOPLE</h1>
-          <br/>
-          <div id="loader">
-            <p class="text-center">Loading...</p>
-          </div>
-          <div id="content" style="display: none;">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Index</th>
-                  <th scope="col">Name</th>
-                  <th scope ="col">Desciption</th>
-                  <th scope="col">Number of Donations</th>
-                  <th scope="col">Amount collected</th>
-                </tr>
-              </thead>
-              <tbody id="CHARITY">
-              </tbody>
-            </table>
-            <hr/>
-            <form onSubmit="App.donation(); return false;">
-              <div class="form-group">
-                <label for="SELECT_CHARITY">Select Charity</label>
-                <select class="form-control" id="SELECT_CHARITY">
-                </select>
-                <!-- input rating of the user to the courseSelected -->
-                <input type="number" class="form-control" id="amt_donate" placeholder="Donation">
-
+              <div class="col-12">
+                <div class="mobile_menu d-block d-lg-none">
+                  <h4 id="accountAddress" class="text-center" style="color:white;margin-top:40px;margin-left: 40px;">
+                    </h3>
+                </div>
               </div>
-              <div class="header-right-btn d-none d-lg-block ml-20">
-                <button type="submit" class="btn header-btn">Donate</button></a>
             </div>
-              
-              <hr />
-            </form>
-            <form onSubmit="App.addCharity(); return false;">
-              <div class="form-group">
-                <label for="charity_name">Add Charity</label>
-                <input type="text" class="form-control" id="charity_name" placeholder="Charity Name">
-                <input type="text" class="form-control" id="charity_desc" placeholder="Charity Desciption">
-              </div>
-              <button type="submit" class="btn header-btn">Add</button></a>
-            </form>
-            <p id="accountAddress" class="text-center"></p>
           </div>
         </div>
       </div>
     </div>
+    <!-- Header End -->
+  </header>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+
+  <div class="slider-area">
+    <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10" style="background-image: url(" paper.gif");">
+              <div style="margin-top:200px" class="hero__caption">
+
+                <h1 data-animation="fadeInUp">Our Helping to<br> the world.</h1>
+
+                <P data-animation="fadeInUp">
+                <H3>A friend in need is a friend indeed!</H3>
+                </P>
+                <!-- Hero-btn -->
+                <div class="hero__btn">
+                  <a href="#2" class="btn hero-btn mb-10" data-animation="fadeInLeft" data-delay=".8s"
+                    style="margin-right:300px">Donate</a>
+                  <br>
+                  <a href="#3" class="btn hero-btn mb-10" data-animation="fadeInLeft" data-delay=".8s"
+                    style="margin-right:200px">Add charities</a><br>
+                  <a href="#1" class="btn hero-btn mb-10" data-animation="fadeInLeft" data-delay=".8s">See
+                    existing charities</a><br>
+                  <a href="#3" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
+
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container" style="width: 100rem;margin-top:50rem">
+    <div class="row">
+      <div class="col-lg-12">
+        <u>
+          <div id="1"></div>
+          <h1 class="text-center" style="color:black; font-size:50px;margin-bottom:50px">FOR THE PEOPLE BY THE PEOPLE
+          </h1>
+        </u>
+
+        <br />
+        <div id="loader">
+          <p class="text-center">Loading...</p>
+        </div>
+        <div id="content">
+          <table class="table" style="border: 2px solid; width:100%; font-family:monospace">
+            <thead>
+              <tr>
+                <th scope="col" style="background-color:#26c563">Index</th>
+                <th scope="col" style="background-color:#26c563">Name</th>
+                <th scope="col" style="background-color:#26c563">Desciption</th>
+                <th scope="col" style="background-color:#26c563">Number of Donations</th>
+                <th scope="col" style="background-color:#26c563">Amount collected</th>
+              </tr>
+            </thead>
+            <tbody id="CHARITY">
+            </tbody>
+          </table>
+          <form onSubmit="App.donation(); return false;" style="margin-top:60rem; font-family:monospace">
+            <div class="form-group">
+              <div id="2"></div>
+              <h3><label for="SELECT_CHARITY"><u>Select Charity</u></label></h3>
+
+              <select class="form-control" id="SELECT_CHARITY" style="margin:12px; border:2px solid black">
+              </select>
+              <!-- input rating of the user to the courseSelected -->
+              <input type="number" class="form-control" id="amt_donate" placeholder="Donation"
+                style="margin:12px; border:2px solid black">
+
+            </div>
+            <div class="header-right-btn d-none d-lg-block ml-20">
+              <button type="submit" class="btn header-btn">Donate</button></a>
+            </div>
+
+
+          </form>
+          <form onSubmit="App.addCharity(); return false;" style="margin-top:60rem; font-family:monospace">
+            <div class="form-group">
+              <h3><label for="charity_name"><u>Add Charity</u></label></h3>
+              <div id="3"></div>
+              <input type="text" class="form-control" id="charity_name" placeholder="Charity Name"
+                style="margin:12px; border:2px solid black">
+              <input type="text" class="form-control" id="charity_desc" placeholder="Charity Desciption"
+                style="margin:12px; border:2px solid black">
+            </div>
+            <button type="submit" class="btn header-btn">Add</button></a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>
