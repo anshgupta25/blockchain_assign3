@@ -1,5 +1,5 @@
-var CourseReview = artifacts.require("./CourseReview.sol");
+var CharityDapp = artifacts.require("./CharityDapp.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(CourseReview);
+    deployer.deploy(CharityDapp);
 };

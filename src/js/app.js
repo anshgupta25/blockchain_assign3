@@ -22,11 +22,11 @@ App = {
     },
 
     initContract: function() {
-        $.getJSON("CourseReview.json", function(courseReview) {
+        $.getJSON("CharityDapp.json", function(CharityDapp) {
             // Instantiate a new truffle contract from the artifact
-            App.contracts.CourseReview = TruffleContract(courseReview);
+            App.contracts.CharityDapp = TruffleContract(CharityDapp);
             // Connect provider to interact with contract
-            App.contracts.CourseReview.setProvider(App.web3Provider);
+            App.contracts.CharityDapp.setProvider(App.web3Provider);
 
             App.listenForEvents();
 
@@ -36,7 +36,7 @@ App = {
 
     // Listen for events emitted from the contract
     listenForEvents: function() {
-        App.contracts.CourseReview.deployed().then(function(instance) {
+        App.contracts.CharityDapp.deployed().then(function(instance) {
             // Restart Chrome if you are unable to receive this event
             // This is a known issue with Metamask
             // https://github.com/MetaMask/metamask-extension/issues/2393
@@ -44,14 +44,14 @@ App = {
                 fromBlock: 0,
                 toBlock: 'latest'
             }).watch(function(error, event) {
-                // Reload when a new vote is recorded
+                // Reload when a new donate is recorded
                 App.render();
             });
         });
     },
 
     render: function() {
-        var courseReviewInstance;
+        var CharityDappinstance;
         var loader = $("#loader");
         var content = $("#content");
 
@@ -67,9 +67,9 @@ App = {
         });
 
         // Load contract data
-        App.contracts.CourseReview.deployed().then(function(instance) {
-            courseReviewInstance = instance;
-            return courseReviewInstance.charity_num(); //////////////////////////////////////////////////////
+        App.contracts.CharityDapp.deployed().then(function(instance) {
+            CharityDappinstance = instance;
+            return CharityDappinstance.charity_num(); //////////////////////////////////////////////////////
         }).then(function(charity_num) {
             var CHARITY = $("#CHARITY");
             CHARITY.empty();
@@ -78,26 +78,26 @@ App = {
             SELECT_CHARITY.empty();
 
             for (var i = 1; i <= charity_num; i++) {
-                courseReviewInstance.courses(i).then(function(course) {
-                    var id = course[0];
-                    var name = course[1];
-                    var desc = course[2];
-                    var voteCount = course[3];
-                    var rating = course[4];
+                CharityDappinstance.charities(i).then(function(Charity_Info) {
+                    var id = Charity_Info[0];
+                    var name = Charity_Info[1];
+                    var desc = Charity_Info[2];
+                    var voteCount = Charity_Info[3];
+                    var donation = Charity_Info[4];
 
-                    // Render course Result
-                    var courseTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + desc + "</td><td>" + voteCount + "</td><td>" + rating + "</tr>"
-                    CHARITY.append(courseTemplate);
+                    // Render Charity_Info Result
+                    var data_charity = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + desc + "</td><td>" + voteCount + "</td><td>" + donation + "</tr>"
+                    CHARITY.append(data_charity);
 
-                    // Render course ballot option
-                    var courseOption = "<option value='" + id + "' >" + name + "</ option>"
-                    SELECT_CHARITY.append(courseOption);
+                    // Render Charity_Info ballot option
+                    var option_charity = "<option value='" + id + "' >" + name + "</ option>"
+                    SELECT_CHARITY.append(option_charity);
                 });
             }
-            // return courseReviewInstance.students(App.account);
+            // return CharityDappinstance.students(App.account);
 
         }).then(function() {
-            // Do not allow a user to vote
+            // Do not allow a user to donate
             // if() {
             //   $('form').hide();
             //   console.log(": " );
@@ -110,14 +110,14 @@ App = {
         });
     },
 
-    castVote: function() {
-        var courseId = $('#SELECT_CHARITY').val();
-        var courseRating = $('#courseRating').val();
-        console.log("courseId: " + courseId + " courseRating: " + courseRating);
-        App.contracts.CourseReview.deployed().then(function(instance) {
-            //return courseId and courseRating to the contract
-            return instance.vote(courseId, courseRating, { from: App.account });
-            // return instance.vote(courseId,courseRating, { from: App.account });
+    donation: function() {
+        var charity_ID = $('#SELECT_CHARITY').val();
+        var amt_donate = $('#amt_donate').val();
+        console.log("charity_ID: " + charity_ID + " amt_donate: " + amt_donate);
+        App.contracts.CharityDapp.deployed().then(function(instance) {
+            //return charity_ID and amt_donate to the contract
+            return instance.donate(charity_ID, amt_donate, { from: App.account });
+            // return instance.donate(charity_ID,amt_donate, { from: App.account });
         }).then(function(result) {
             // Wait for votes to update
             $("#content").hide();
@@ -126,18 +126,18 @@ App = {
             console.error(err);
         });
     },
-    addCourse: function() {
-        var courseName = $('#courseName').val();
-        var courseDesc = $('#courseDesc').val();
-        console.log("courseName: " + courseName);
-        App.contracts.CourseReview.deployed().then(function(instance) {
-            //return courseId and courseRating to the contract
-            return instance.addCourse(courseName, courseDesc, { from: App.account });
-            // return instance.vote(courseId,courseRating, { from: App.account });
+    addCharity: function() {
+        var charity_name = $('#charity_name').val();
+        var charity_desc = $('#charity_desc').val();
+        console.log("charity_name: " + charity_name);
+        App.contracts.CharityDapp.deployed().then(function(instance) {
+            //return charity_ID and amt_donate to the contract
+            return instance.addCharity(charity_name, charity_desc, { from: App.account });
+            // return instance.donate(charity_ID,amt_donate, { from: App.account });
         }).then(function(result) {
             // Wait for votes to update
             $("#content").hide();
-            $("#loader").show();
+            // $("#loader").show();
         }).catch(function(err) {
             console.error(err);
         });

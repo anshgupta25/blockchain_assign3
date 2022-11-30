@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CourseReview Results</title>
+    <title>Charity Dapp</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -101,13 +101,13 @@
               </tbody>
             </table>
             <hr/>
-            <form onSubmit="App.castVote(); return false;">
+            <form onSubmit="App.donation(); return false;">
               <div class="form-group">
                 <label for="SELECT_CHARITY">Select Charity</label>
                 <select class="form-control" id="SELECT_CHARITY">
                 </select>
                 <!-- input rating of the user to the courseSelected -->
-                <input type="number" class="form-control" id="courseRating" placeholder="Rating">
+                <input type="number" class="form-control" id="amt_donate" placeholder="Donation">
 
               </div>
               <div class="header-right-btn d-none d-lg-block ml-20">
@@ -116,11 +116,11 @@
               
               <hr />
             </form>
-            <form onSubmit="App.addCourse(); return false;">
+            <form onSubmit="App.addCharity(); return false;">
               <div class="form-group">
-                <label for="courseName">Add Charity</label>
-                <input type="text" class="form-control" id="courseName" placeholder="Course Name">
-                <input type="text" class="form-control" id="courseDesc" placeholder="Course Desciption">
+                <label for="charity_name">Add Charity</label>
+                <input type="text" class="form-control" id="charity_name" placeholder="Charity Name">
+                <input type="text" class="form-control" id="charity_desc" placeholder="Charity Desciption">
               </div>
               <button type="submit" class="btn header-btn">Add</button></a>
             </form>
