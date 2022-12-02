@@ -104,16 +104,12 @@ App = {
             // }
             loader.hide();
             content.show();
-        }).catch(function(error) {
-            console.warn(error);
-            console.log("error: " + error);
         });
     },
 
     donation: function() {
         var charity_ID = $('#SELECT_CHARITY').val();
         var amt_donate = $('#amt_donate').val();
-        console.log("charity_ID: " + charity_ID + " amt_donate: " + amt_donate);
         App.contracts.CharityDapp.deployed().then(function(instance) {
             //return charity_ID and amt_donate to the contract
             return instance.donate(charity_ID, amt_donate, { from: App.account });
@@ -122,14 +118,11 @@ App = {
             // Wait for votes to update
             $("#content").hide();
             $("#loader").show();
-        }).catch(function(err) {
-            console.error(err);
         });
     },
     addCharity: function() {
         var charity_name = $('#charity_name').val();
         var charity_desc = $('#charity_desc').val();
-        console.log("charity_name: " + charity_name);
         App.contracts.CharityDapp.deployed().then(function(instance) {
             //return charity_ID and amt_donate to the contract
             return instance.addCharity(charity_name, charity_desc, { from: App.account });
@@ -138,8 +131,6 @@ App = {
             // Wait for votes to update
             $("#content").hide();
             // $("#loader").show();
-        }).catch(function(err) {
-            console.error(err);
         });
 
     }

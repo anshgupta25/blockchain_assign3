@@ -99,9 +99,7 @@
         </u>
 
         <br />
-        <div id="loader">
-          <p class="text-center">Loading...</p>
-        </div>
+
         <div id="content">
           <table class="table" style="border: 2px solid; width:100%; font-family:monospace">
             <thead>
@@ -117,39 +115,48 @@
             </tbody>
           </table>
           <form onSubmit="App.donation(); return false;" style="margin-top:60rem; font-family:monospace">
-            <div class="form-group">
+            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10" style="background-image: url(" paper.gif");">
+
+            <div class="form-group" style="margin-right:150px;margin-left:-120px">
+
+
               <div id="2"></div>
               <h3><label for="SELECT_CHARITY"><u>Select Charity</u></label></h3>
 
-              <select class="form-control" id="SELECT_CHARITY" style="margin:12px; border:2px solid black">
+              <select class="form-control" id="SELECT_CHARITY" style="margin:12px; border:2px solid black;margin-left:-6px">
               </select>
               <!-- input rating of the user to the courseSelected -->
               <input type="number" class="form-control" id="amt_donate" placeholder="Donation"
-                style="margin:12px; border:2px solid black">
+                style="margin:12px; border:2px solid black;margin-left:-6px">
 
             </div>
             <div class="header-right-btn d-none d-lg-block ml-20">
-              <button type="submit" class="btn header-btn">Donate</button></a>
+              <button type="submit" class="btn header-btn" style="margin-left:-140px">Donate</button></a>
             </div>
+          </div>
 
 
           </form>
-          <form onSubmit="App.addCharity(); return false;" style="margin-top:60rem; font-family:monospace">
+          <form onSubmit="App.addCharity(); return false;" style="margin-top:60rem;margin-bottom:60rem; font-family:monospace">
+            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10" style="background-image: url(" paper.gif");">
+
             <div class="form-group">
+
               <h3><label for="charity_name"><u>Add Charity</u></label></h3>
               <div id="3"></div>
               <input type="text" class="form-control" id="charity_name" placeholder="Charity Name"
-                style="margin:12px; border:2px solid black">
+                style="margin:12px; border:2px solid black;margin-left:-6px">
               <input type="text" class="form-control" id="charity_desc" placeholder="Charity Desciption"
-                style="margin:12px; border:2px solid black">
+                style="margin:12px; border:2px solid black;margin-left:-6px">
             </div>
             <button type="submit" class="btn header-btn">Add</button></a>
           </form>
-
         </div>
       </div>
     </div>
+    <div style:"margin:50px;"></div>
   </div>
+  <div style="margin-top:100px"></div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
